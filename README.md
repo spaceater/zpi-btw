@@ -1,4 +1,4 @@
-# @semanaut/pi-btw
+# @semanaut/zpi-btw
 
 `/btw` — ask a one-off side question in [pi](https://github.com/earendil-works/pi).
 
@@ -7,7 +7,7 @@ The question inherits the full main-session context but is answered by a separat
 ## Install
 
 ```bash
-pi install npm:@semanaut/pi-btw
+pi install npm:@semanaut/zpi-btw
 ```
 
 ## Usage

@@ -1,5 +1,5 @@
 {
-  "name": "@semanaut/pi-btw",
+  "name": "@semanaut/zpi-btw",
   "version": "0.1.0",
   "description": "pi extension: /btw — ask a one-off side question answered by a separate model call, streamed into the live transcript and never written to the session",
   "type": "module",
@@ -12,6 +12,6 @@
   "peerDependencies": { "@earendil-works/pi-ai": "*", "@earendil-works/pi-coding-agent": "*", "@earendil-works/pi-tui": "*", "typebox": "*" },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/semanaut/pi-btw.git"
+    "url": "git+https://github.com/semanaut/zpi-btw.git"
   }
 }
