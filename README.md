@@ -2,8 +2,6 @@
 
 `/btw` — ask a one-off side question in [pi](https://github.com/earendil-works/pi).
 
-Developed against pi 1.1.0; see the `piVersion` field in `package.json`.
-
 The question inherits the full main-session context but is answered by a separate model call, so nothing enters the main conversation. The Q&A block streams into the live transcript in place and is never written to the session file or disk. The answer renders as markdown, with streaming display: deltas arrive in the block delta by delta.
 
 ## Philosophy: minimal by design

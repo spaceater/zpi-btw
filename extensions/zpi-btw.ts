@@ -1,5 +1,5 @@
 /**
- * /btw — ask a one-off side question.
+ * zpi-btw — /btw: ask a one-off side question.
  *
  * The question inherits the full main-session context (system prompt and
  * the current branch's conversation) but is answered by a separate model
@@ -35,7 +35,7 @@ const shared: {
 	tui: any;
 	chat: any;
 	sessionId: string;
-} = ((globalThis as any)[Symbol.for("pi-btw-state")] ??= {
+} = ((globalThis as any)[Symbol.for("zpi-btw-state")] ??= {
 	threads: new Map<string, BtwBlock[]>(),
 	tui: undefined,
 	chat: undefined,
@@ -180,7 +180,7 @@ function themeOf(ctx: any): Theme {
 	return (ctx.ui as any).theme;
 }
 
-export default function btwExtension(pi: ExtensionAPI) {
+export default function zpiBtwExtension(pi: ExtensionAPI) {
 	pi.registerCommand("btw", {
 		description: "Ask a side question; the answer lands in the transcript (in-memory only)",
 		handler: async (args, ctx) => {
