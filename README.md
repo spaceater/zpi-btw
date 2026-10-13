@@ -2,6 +2,8 @@
 
 `/btw` — ask a one-off side question in [pi](https://github.com/earendil-works/pi).
 
+Developed against pi 1.1.0; see the `piVersion` field in `package.json`.
+
 The question inherits the full main-session context but is answered by a separate model call, so nothing enters the main conversation. The Q&A block streams into the live transcript in place and is never written to the session file or disk. The answer renders as markdown, with streaming display: deltas arrive in the block delta by delta.
 
 ## Philosophy: minimal by design
@@ -23,7 +25,3 @@ pi install npm:@semanaut/zpi-btw
 ## Usage
 
 Type `/btw <question>` in pi. The answer appears in a transient block below the current conversation.
-
-## Versioning
-
-The extension's version always matches the pi version it is built for: `1.1.0` of this package targets pi `1.1.0`, `1.2.0` targets pi `1.2.0`, and so on — install the version that matches your pi. If a release has to be repeated while the target pi version is unchanged, it gets a prerelease suffix instead: `1.1.0-2`, then `-3`, and so on. npm never allows overwriting an already-published version: every publish is a new, immutable version.
