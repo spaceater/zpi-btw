@@ -124,7 +124,8 @@ function stopBlock(block: BtwBlock, streamed: string, theme: Theme, session: str
 
 // Main-session conversation plus the completed btw thread; thinking
 // blocks are dropped because they are only valid inside their original
-// stream.
+// stream — the same rule pi's own serializeConversation() has applied since
+// 1.2.0 (compaction and branch summaries omit thinking too).
 function contextMessages(ctx: any): Message[] {
 	const messages: Message[] = [];
 	for (const entry of ctx.sessionManager.getBranch()) {
@@ -207,9 +208,12 @@ export default function zpiBtwExtension(pi: ExtensionAPI) {
 			const messages = contextMessages(ctx);
 			messages.push({ role: "user", content: [{ type: "text", text: question }] } as Message);
 
+			// ctx.getSystemPrompt() is a live view of the current system prompt and is
+			// part of ExtensionContext since pi 1.2.0; the try/catch covers a runner
+			// that is no longer active.
 			let systemPrompt = FALLBACK_PROMPT;
 			try {
-				systemPrompt = (ctx as any).getSystemPrompt?.() || FALLBACK_PROMPT;
+				systemPrompt = ctx.getSystemPrompt?.() || FALLBACK_PROMPT;
 			} catch { /* session not active; fall back */ }
 
 			const controller = new AbortController();
