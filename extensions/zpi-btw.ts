@@ -4,7 +4,7 @@
  * The question inherits the full main-session context (system prompt and
  * the current branch's conversation) but is answered by a separate model
  * call, so nothing enters the main conversation. The Q&A block appears in
- * the live transcript immediately — first showing only "asking…" — and
+ * the live transcript immediately — first showing only "asking..." — and
  * the answer streams into the same block in place, delta by delta. The
  * block is visually identical to a session entry but held in process
  * memory only: nothing is ever written to the session file or disk, and
@@ -68,18 +68,18 @@ function installClearHook(chat: any): void {
 	};
 }
 
-// The block shows the question immediately with an "asking…" placeholder;
+// The block shows the question immediately with an "asking..." placeholder;
 // while the answer streams, the placeholder is swapped for a Markdown
 // child that is rewritten with each accumulated delta.
 function buildBlock(question: string, modelLabel: string, theme: Theme): BtwBlock {
 	const box = new Box(1, 0, (text) => theme.bg("customMessageBg", text));
 	box.addChild(new Text(theme.fg("accent", theme.bold("btw")) + theme.fg("dim", ` ${question}`), 0, 0));
-	const placeholder = new Text(theme.fg("dim", `asking ${modelLabel}…`), 0, 0);
+	const placeholder = new Text(theme.fg("dim", `asking ${modelLabel}...`), 0, 0);
 	box.addChild(placeholder);
 	return { question, answer: null, box, placeholder, md: undefined };
 }
 
-// Remove the "asking…" line and start the streaming Markdown child.
+// Remove the "asking..." line and start the streaming Markdown child.
 function startStreaming(block: BtwBlock): Markdown {
 	if (!block.md) {
 		block.box.removeChild(block.placeholder);

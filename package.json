@@ -1,6 +1,6 @@
 {
   "name": "@semanaut/zpi-btw",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "piVersion": "1.4.0",
   "description": "pi extension: /btw — ask a one-off side question answered by a separate model call, streamed into the live transcript and never written to the session. Minimal by design: no state, no branches, no config. Streaming and markdown rendering included; developed against the pi version given by the piVersion field",
   "type": "module",
